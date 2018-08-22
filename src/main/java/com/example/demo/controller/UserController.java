@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @PreAuthorize("#oauth2.hasScope('foo') and hasRole('ROLE_ADMIN')")
     @GetMapping("/user")
     public List<User> listUser(){
         return userService.findAll();

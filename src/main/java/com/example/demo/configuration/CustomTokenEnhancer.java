@@ -15,7 +15,7 @@ public class CustomTokenEnhancer implements TokenEnhancer {
       OAuth2Authentication authentication) {
         Map<String, Object> additionalInfo = new HashMap<>();
         additionalInfo.put(
-          "organization", "ifood" );
+          "enhancer", "additional information" );
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(
           additionalInfo);
         return accessToken;

@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        //TODO bater no account e recuperar a conta.
         User user = userDao.findByUsername(userId);
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
